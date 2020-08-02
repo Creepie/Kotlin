@@ -13,11 +13,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val buttomNavigationView = findViewById<BottomNavigationView>(R.id.bottomNavigationView)
-        val navController = findNavController(R.id.fragment)
-        val appBarConfiguration = AppBarConfiguration(setOf(R.id.homeFragment, R.id.profileFragment, R.id.settingsFragment))
-        setupActionBarWithNavController(navController, appBarConfiguration)
+        supportActionBar?.hide()
 
-        buttomNavigationView.setupWithNavController(navController)
+
     }
 }

@@ -1,11 +1,13 @@
-package com.example.fragment.fragments
+package com.example.fragment.onboarding.screens
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.viewpager2.widget.ViewPager2
 import com.example.fragment.R
+import kotlinx.android.synthetic.main.fragment_onboarding_second_screen.view.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -14,10 +16,10 @@ private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
- * Use the [firstFragment.newInstance] factory method to
+ * Use the [SecondScreen.newInstance] factory method to
  * create an instance of this fragment.
  */
-class firstFragment : Fragment() {
+class SecondScreen : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -35,7 +37,14 @@ class firstFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false)
+        val view =  inflater.inflate(R.layout.fragment_onboarding_second_screen, container, false)
+
+        val viewPager = activity?.findViewById<ViewPager2>(R.id.viewPager)
+        view.bT_second.setOnClickListener {
+            viewPager?.currentItem = 2
+        }
+
+        return view
     }
 
     companion object {
@@ -45,12 +54,12 @@ class firstFragment : Fragment() {
          *
          * @param param1 Parameter 1.
          * @param param2 Parameter 2.
-         * @return A new instance of fragment firstFragment.
+         * @return A new instance of fragment SecondScreen.
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-            firstFragment().apply {
+            SecondScreen().apply {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)
