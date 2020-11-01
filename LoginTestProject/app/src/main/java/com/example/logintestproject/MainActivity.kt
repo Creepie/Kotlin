@@ -18,6 +18,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        
         textView = findViewById(R.id.myText)
         analytics = FirebaseAnalytics.getInstance(this) // google anatytics for button
 
