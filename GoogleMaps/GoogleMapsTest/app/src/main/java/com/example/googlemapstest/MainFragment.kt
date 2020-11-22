@@ -18,7 +18,7 @@ import java.nio.channels.Selector
 class MainFragment : Fragment(){
 
     private val model: SharedView by activityViewModels()
-
+    private lateinit var locationList: ArrayList<Location>
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -32,6 +32,16 @@ class MainFragment : Fragment(){
         }
         view.findViewById<Button>(R.id.bT_selin).setOnClickListener{
             model.addLocation(Location(MapsSettings.home_selin, MapsSettings.home_selin_title))
+        }
+
+        view.findViewById<Button>(R.id.bT_all).setOnClickListener {
+            locationList = ArrayList()
+            locationList.add(Location(MapsSettings.home_stefan, MapsSettings.home_stefan_title))
+            locationList.add(Location(MapsSettings.home_mario, MapsSettings.home_mario_title))
+            locationList.add(Location(MapsSettings.home_selin, MapsSettings.home_selin_title))
+
+            model.addLocationList(locationList)
+
         }
 
     }

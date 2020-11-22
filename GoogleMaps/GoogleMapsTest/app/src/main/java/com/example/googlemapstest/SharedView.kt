@@ -7,9 +7,14 @@ import com.google.android.gms.maps.model.LatLng
 class SharedView: ViewModel() {
 
     val location = MutableLiveData<Location>()
+    val locationList = MutableLiveData<ArrayList<Location>>()
 
     fun addLocation(location: Location){
         this.location.value = location
+    }
+
+    fun addLocationList(location: ArrayList<Location>){
+        this.locationList.value = location
     }
 }
 
